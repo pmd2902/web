@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ShopGiaydbContext">
+  <DataContextMoniker Name="/ShopGiaydbContextDataContext" />
+  <nestedChildShapes>
+    <classShape Id="17106a87-11b4-4c5b-a663-e256caed4038" absoluteBounds="4.875, 1.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ShopGiaydbContextDataContext/LichSuMuaHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7431eb4-ef66-49a1-9d72-db879a22ffe7" absoluteBounds="4.89, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6fd5800-0234-49b1-9ac1-e10c3cc7b77b" absoluteBounds="1.875, 4.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ShopGiaydbContextDataContext/NhaSanXuat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12029650-a676-47b1-aa62-7b2da68a9d96" absoluteBounds="1.8900000000000001, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6888ffe-3718-4cac-b07a-569171811cad" absoluteBounds="2.25, 0.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ShopGiaydbContextDataContext/SanPham" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82abbdc7-9661-4272-ae1a-d9afc7b56540" absoluteBounds="2.2650000000000006, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.0625 : 4.5); (3.0625 : 2.97280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ShopGiaydbContextDataContext/NhaSanXuat/NhaSanXuat_SanPham" />
+      <nodes>
+        <classShapeMoniker Id="a6fd5800-0234-49b1-9ac1-e10c3cc7b77b" />
+        <classShapeMoniker Id="e6888ffe-3718-4cac-b07a-569171811cad" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cf118e08-7e81-497e-b10d-93241bdd40c8" absoluteBounds="4.875, 4.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ShopGiaydbContextDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="162d3436-9edf-4145-b21d-8b99247824e3" absoluteBounds="4.89, 5.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 2.89589680989583); (5.875 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ShopGiaydbContextDataContext/LichSuMuaHang/LichSuMuaHang_User" />
+      <nodes>
+        <classShapeMoniker Id="17106a87-11b4-4c5b-a663-e256caed4038" />
+        <classShapeMoniker Id="cf118e08-7e81-497e-b10d-93241bdd40c8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c006f060-2136-482c-bc41-ec5212a534eb" absoluteBounds="7.875, 3.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ShopGiaydbContextDataContext/Menu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d06f4aa-11d2-4888-92cc-1bc358032688" absoluteBounds="7.8900000000000006, 3.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
