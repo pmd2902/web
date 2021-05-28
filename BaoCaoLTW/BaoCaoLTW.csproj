@@ -762,6 +762,10 @@
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

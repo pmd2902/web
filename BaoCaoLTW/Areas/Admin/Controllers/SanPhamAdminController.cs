@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaoCaoLTW.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,12 +7,16 @@ using System.Web.Mvc;
 
 namespace BaoCaoLTW.Areas.Admin.Controllers
 {
+
     public class SanPhamAdminController : Controller
     {
+        ShopGiaydbContextDataContext data = new ShopGiaydbContextDataContext();
         // GET: Admin/SanPhamAdmin
         public ActionResult Index()
         {
-            return View();
+            var sanpham = data.SanPhams.ToList();
+
+            return View(sanpham);
         }
 
         // GET: Admin/SanPhamAdmin/Details/5
@@ -19,7 +24,7 @@ namespace BaoCaoLTW.Areas.Admin.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         // GET: Admin/SanPhamAdmin/Create
         public ActionResult Create()
         {
@@ -28,62 +33,65 @@ namespace BaoCaoLTW.Areas.Admin.Controllers
 
         // POST: Admin/SanPhamAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SanPham sanpham)
         {
-            try
+            var res = data.SanPhams.Any(x => x.MaSanPham == sanpham.MaSanPham);
+            if (res)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+                ModelState.AddModelError("", "Mã này đã tồn tại");
                 return View();
             }
-        }
+            else
+            {
+                data.SanPhams.InsertOnSubmit(sanpham);
+                data.SubmitChanges();
+            }
 
+            return RedirectToAction("Index");
+
+        }
         // GET: Admin/SanPhamAdmin/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ActionResult Edit(string id)
         {
-            return View();
+            var sanpham = data.SanPhams.SingleOrDefault(x => x.MaSanPham == id);
+            return View(sanpham);
+
         }
 
-        // POST: Admin/SanPhamAdmin/Edit/5
+        // POST: Admin/NhaSanXuatAdmin/Create
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(SanPham sanpham)
         {
-            try
-            {
-                // TODO: Add update logic here
+            var sp = data.SanPhams.SingleOrDefault(x => x.MaSanPham == sanpham.MaSanPham);
+            sp.MaSanPham = sanpham.MaSanPham;
+            sp.TenSanPham = sanpham.TenSanPham;
+            sp.HinhAnh = sanpham.HinhAnh;
+            sp.MaNhaSX = sanpham.MaNhaSX;
+            sp.TenNhaSX = sanpham.TenNhaSX;
+            sp.Gia = sanpham.Gia;
+            sp.SoLuong = sanpham.SoLuong;
+            sp.TinhTrang = sanpham.TinhTrang;
+            data.SubmitChanges();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Admin/SanPhamAdmin/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return RedirectToAction("Index");
         }
 
         // POST: Admin/SanPhamAdmin/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        //[HttpPost]C:\Users\dell\Desktop\MVC 1\web\BaoCaoLTW\Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml
+        public ActionResult Delete(string id)
         {
-            try
+            ShopGiaydbContextDataContext data = new ShopGiaydbContextDataContext();
+            SanPham sp = data.SanPhams.FirstOrDefault(x => x.MaSanPham == id);
+            if (sp != null)
             {
-                // TODO: Add delete logic here
+                data.SanPhams.DeleteOnSubmit(sp);
+                data.SubmitChanges();
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
+
     }
 }
+
