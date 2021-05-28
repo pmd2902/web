@@ -20,7 +20,7 @@
         <elementListCompartment Id="162d3436-9edf-4145-b21d-8b99247824e3" absoluteBounds="4.89, 5.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.15625 : 2.89589680989583); (6.15625 : 4.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.15625 : 2.89589680989583); (6.15625 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ShopGiaydbContextDataContext/LichSuMuaHang/LichSuMuaHang_User" />
       <nodes>
         <classShapeMoniker Id="17106a87-11b4-4c5b-a663-e256caed4038" />

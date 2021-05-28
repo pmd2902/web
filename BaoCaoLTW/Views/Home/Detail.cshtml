@@ -33,11 +33,27 @@
                                     <li>Mã sản phẩm: @Model.MaSanPham</li>
                                 </ul>
                             </div>
-                            <span>Giá: <span style="color:red; font-size: 25px;">@Model.Gia </span> VNĐ</span>                     
+                            <span>Giá: <span style="color:red;font-size: 25px">@Model.Gia</span> VNĐ</span>                   
                             <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            <div id="Dat-mua">
-                                <a href="@Url.Action("AddToCart","ShoppingCart", new { id = Model.MaSanPham})" class="btn btn-danger">THÊM VÀO GIỎ HÀNG</a>
-                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("ThemGioHang", "GioHang", FormMethod.Post))
+                                {
+                               <input type="hidden" name="masanpham" value="@Model.MaSanPham"/>
+                               <input type="hidden" name="gia" value="@Model.Gia"/>
+                               <input type="hidden" name="tensanpham" value="@Model.TenSanPham"/>
+                               <label>Số lượng: </label><input type="text" value="1" min="1" max="100" name="soluong"/>
+                               <hr />
+                               <div id="Datmua">
+                                   <a href="@Url.Action("ThemGioHang", "GioHang", new { @sMaSanPham=Model.MaSanPham, @strUrl=Request.Url.ToString() })" class="btn btn-danger">THÊM VÀO GIỎ HÀNG</a>
+                               </div>
+                                }
+                            }
+                            else
+                            {
+                                <h4>Vui lòng đăng nhập để mua sản phẩm!</h4>
+                            }
+
                             <hr />
                             <div class="share well">
                                 <strong style="margin-right: 13px;">Share :</strong>
