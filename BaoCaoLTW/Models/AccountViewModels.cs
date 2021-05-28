@@ -6,7 +6,10 @@ namespace BaoCaoLTW.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+
+        [Required]    
         public string Email { get; set; }
     }
 
@@ -49,10 +52,9 @@ namespace BaoCaoLTW.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
-
+        [Display(Name = "UserName")]        
+        public string UserName { get; set; }
+       
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -64,10 +66,23 @@ namespace BaoCaoLTW.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [Display(Name = "UserName")]       
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "PhoneNumber")]        
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -79,6 +94,7 @@ namespace BaoCaoLTW.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
     }
 
     public class ResetPasswordViewModel

@@ -206,11 +206,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NhaSanXuatController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BUS\ThuongHieuBUS.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShopGiaydbContext.designer.cs">
@@ -220,6 +224,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Home\AboutController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\user\css\bootstrap.min.css" />
@@ -244,6 +249,9 @@
     <Content Include="Assets\user\img\conserve3.jpg" />
     <Content Include="Assets\user\img\conserve4.jpg" />
     <Content Include="Assets\user\img\discover-curved-32px.png" />
+    <Content Include="Assets\user\img\hinh1.jpg" />
+    <Content Include="Assets\user\img\hinh2.jpg" />
+    <Content Include="Assets\user\img\hinh3.jpg" />
     <Content Include="Assets\user\img\logo.jpg" />
     <Content Include="Assets\user\img\maestro-curved-32px.png" />
     <Content Include="Assets\user\img\main-banner1.jpg" />
@@ -384,6 +392,18 @@
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\ThuongHieu.cshtml" />
+    <Content Include="Views\Shop\Shop.cshtml" />
+    <Content Include="Views\Home\SPTheoThuongHieu.cshtml" />
+    <Content Include="Views\Home\LayMenu.cshtml" />
+    <Content Include="Views\Shared\_ThuongHieu.cshtml" />
+    <Content Include="Views\Shared\_Shop.cshtml" />
+    <Content Include="Views\Shared\_Home.cshtml" />
+    <Content Include="Views\NhaSanXuat\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Shared\_About.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

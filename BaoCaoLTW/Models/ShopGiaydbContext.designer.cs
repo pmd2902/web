@@ -33,9 +33,6 @@ namespace BaoCaoLTW.Models
     partial void InsertLichSuMuaHang(LichSuMuaHang instance);
     partial void UpdateLichSuMuaHang(LichSuMuaHang instance);
     partial void DeleteLichSuMuaHang(LichSuMuaHang instance);
-    partial void InsertNhaSanXuat(NhaSanXuat instance);
-    partial void UpdateNhaSanXuat(NhaSanXuat instance);
-    partial void DeleteNhaSanXuat(NhaSanXuat instance);
     partial void InsertSanPham(SanPham instance);
     partial void UpdateSanPham(SanPham instance);
     partial void DeleteSanPham(SanPham instance);
@@ -45,6 +42,9 @@ namespace BaoCaoLTW.Models
     partial void InsertMenu(Menu instance);
     partial void UpdateMenu(Menu instance);
     partial void DeleteMenu(Menu instance);
+    partial void InsertNhaSanXuat(NhaSanXuat instance);
+    partial void UpdateNhaSanXuat(NhaSanXuat instance);
+    partial void DeleteNhaSanXuat(NhaSanXuat instance);
     #endregion
 		
 		public ShopGiaydbContextDataContext() : 
@@ -85,14 +85,6 @@ namespace BaoCaoLTW.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<NhaSanXuat> NhaSanXuats
-		{
-			get
-			{
-				return this.GetTable<NhaSanXuat>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SanPham> SanPhams
 		{
 			get
@@ -114,6 +106,14 @@ namespace BaoCaoLTW.Models
 			get
 			{
 				return this.GetTable<Menu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<NhaSanXuat> NhaSanXuats
+		{
+			get
+			{
+				return this.GetTable<NhaSanXuat>();
 			}
 		}
 	}
@@ -301,120 +301,6 @@ namespace BaoCaoLTW.Models
 		{
 			this.SendPropertyChanging();
 			entity.LichSuMuaHang = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NhaSanXuat")]
-	public partial class NhaSanXuat : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MaNhaSX;
-		
-		private string _TenNhaSX;
-		
-		private EntitySet<SanPham> _SanPhams;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaNhaSXChanging(string value);
-    partial void OnMaNhaSXChanged();
-    partial void OnTenNhaSXChanging(string value);
-    partial void OnTenNhaSXChanged();
-    #endregion
-		
-		public NhaSanXuat()
-		{
-			this._SanPhams = new EntitySet<SanPham>(new Action<SanPham>(this.attach_SanPhams), new Action<SanPham>(this.detach_SanPhams));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNhaSX", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MaNhaSX
-		{
-			get
-			{
-				return this._MaNhaSX;
-			}
-			set
-			{
-				if ((this._MaNhaSX != value))
-				{
-					this.OnMaNhaSXChanging(value);
-					this.SendPropertyChanging();
-					this._MaNhaSX = value;
-					this.SendPropertyChanged("MaNhaSX");
-					this.OnMaNhaSXChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNhaSX", DbType="NVarChar(50)")]
-		public string TenNhaSX
-		{
-			get
-			{
-				return this._TenNhaSX;
-			}
-			set
-			{
-				if ((this._TenNhaSX != value))
-				{
-					this.OnTenNhaSXChanging(value);
-					this.SendPropertyChanging();
-					this._TenNhaSX = value;
-					this.SendPropertyChanged("TenNhaSX");
-					this.OnTenNhaSXChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhaSanXuat_SanPham", Storage="_SanPhams", ThisKey="MaNhaSX", OtherKey="MaNhaSX")]
-		public EntitySet<SanPham> SanPhams
-		{
-			get
-			{
-				return this._SanPhams;
-			}
-			set
-			{
-				this._SanPhams.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SanPhams(SanPham entity)
-		{
-			this.SendPropertyChanging();
-			entity.NhaSanXuat = this;
-		}
-		
-		private void detach_SanPhams(SanPham entity)
-		{
-			this.SendPropertyChanging();
-			entity.NhaSanXuat = null;
 		}
 	}
 	
@@ -1115,6 +1001,144 @@ namespace BaoCaoLTW.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NhaSanXuat")]
+	public partial class NhaSanXuat : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaNhaSX;
+		
+		private string _TenNhaSX;
+		
+		private System.Nullable<bool> _TinhTrang;
+		
+		private EntitySet<SanPham> _SanPhams;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaNhaSXChanging(string value);
+    partial void OnMaNhaSXChanged();
+    partial void OnTenNhaSXChanging(string value);
+    partial void OnTenNhaSXChanged();
+    partial void OnTinhTrangChanging(System.Nullable<bool> value);
+    partial void OnTinhTrangChanged();
+    #endregion
+		
+		public NhaSanXuat()
+		{
+			this._SanPhams = new EntitySet<SanPham>(new Action<SanPham>(this.attach_SanPhams), new Action<SanPham>(this.detach_SanPhams));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNhaSX", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaNhaSX
+		{
+			get
+			{
+				return this._MaNhaSX;
+			}
+			set
+			{
+				if ((this._MaNhaSX != value))
+				{
+					this.OnMaNhaSXChanging(value);
+					this.SendPropertyChanging();
+					this._MaNhaSX = value;
+					this.SendPropertyChanged("MaNhaSX");
+					this.OnMaNhaSXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNhaSX", DbType="NVarChar(50)")]
+		public string TenNhaSX
+		{
+			get
+			{
+				return this._TenNhaSX;
+			}
+			set
+			{
+				if ((this._TenNhaSX != value))
+				{
+					this.OnTenNhaSXChanging(value);
+					this.SendPropertyChanging();
+					this._TenNhaSX = value;
+					this.SendPropertyChanged("TenNhaSX");
+					this.OnTenNhaSXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TinhTrang", DbType="Bit")]
+		public System.Nullable<bool> TinhTrang
+		{
+			get
+			{
+				return this._TinhTrang;
+			}
+			set
+			{
+				if ((this._TinhTrang != value))
+				{
+					this.OnTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._TinhTrang = value;
+					this.SendPropertyChanged("TinhTrang");
+					this.OnTinhTrangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NhaSanXuat_SanPham", Storage="_SanPhams", ThisKey="MaNhaSX", OtherKey="MaNhaSX")]
+		public EntitySet<SanPham> SanPhams
+		{
+			get
+			{
+				return this._SanPhams;
+			}
+			set
+			{
+				this._SanPhams.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SanPhams(SanPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.NhaSanXuat = this;
+		}
+		
+		private void detach_SanPhams(SanPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.NhaSanXuat = null;
 		}
 	}
 }

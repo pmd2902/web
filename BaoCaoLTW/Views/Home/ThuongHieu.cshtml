@@ -1,0 +1,10 @@
+﻿@model IEnumerable<BaoCaoLTW.Models.NhaSanXuat>
+    @foreach(var item in Model)
+    {
+        <a href="@Url.Action("SPTheoThuongHieu", "Home", new { id = item.MaNhaSX })" class="list-group-item">
+            @item.TenNhaSX
+        </a>
+       
+    }
+
+

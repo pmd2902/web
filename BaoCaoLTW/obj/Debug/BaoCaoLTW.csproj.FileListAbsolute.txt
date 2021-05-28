@@ -77,10 +77,10 @@ C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\Microsoft.Owin.Security.OAuth.
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.csprojResolveAssemblyReference.cache
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.dll
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.pdb
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\PagedList.dll
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\PagedList.Mvc.dll
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\PagedList.xml
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\PagedList.Mvc.xml
+C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.csprojResolveAssemblyReference.cache

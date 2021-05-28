@@ -10,13 +10,6 @@
       <Association Name="LichSuMuaHang_User" Member="Users" ThisKey="MaDonHang" OtherKey="MaDonHang" Type="User" />
     </Type>
   </Table>
-  <Table Name="dbo.NhaSanXuat" Member="NhaSanXuats">
-    <Type Name="NhaSanXuat">
-      <Column Name="MaNhaSX" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenNhaSX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="NhaSanXuat_SanPham" Member="SanPhams" ThisKey="MaNhaSX" OtherKey="MaNhaSX" Type="SanPham" />
-    </Type>
-  </Table>
   <Table Name="dbo.SanPham" Member="SanPhams">
     <Type Name="SanPham">
       <Column Name="MaSanPham" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -50,6 +43,14 @@
       <Column Name="Link" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaSanXuat" Member="NhaSanXuats">
+    <Type Name="NhaSanXuat">
+      <Column Name="MaNhaSX" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNhaSX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="NhaSanXuat_SanPham" Member="SanPhams" ThisKey="MaNhaSX" OtherKey="MaNhaSX" Type="SanPham" />
     </Type>
   </Table>
 </Database>

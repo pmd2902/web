@@ -28,8 +28,23 @@ namespace BaoCaoLTW.Controllers
             var sanpham = from s in data.SanPhams
                           where s.MaSanPham == id
                           select s;
-            return View(sanpham.Single());
+            return View(sanpham.SingleOrDefault());
         }
+
+        public ActionResult ThuongHieu()
+        {
+            var thuonghieu = from th in data.NhaSanXuats select th;
+            return PartialView(thuonghieu);
+        }
+
+        public ActionResult SPTheoThuongHieu(string id)
+        {
+            var sanpham = from s in data.SanPhams where s.MaNhaSX == id select s;
+            return View(sanpham);
+        }
+
+      
+
 
     }
 }
