@@ -1,0 +1,33 @@
+﻿@model List<BaoCaoLTW.Models.LichSuMuaHang>
+@{
+    ViewBag.Title = "THÔNG TIN ĐƠN HÀNG";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<h4 style="text-align:center">THÔNG TIN ĐƠN HÀNG</h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Mã đơn hàng</th>
+            <th scope="col">Họ tên</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Tình trạng</th>
+            <th scope="col">Ngày đặt</th>          
+        </tr>
+        </a>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td><a href="@Url.Action("CTDDH","Home",new { @MaDH = item.MaDonHang })" style="text-decoration:none">@item.MaDonHang</a></td>
+                <td>@item.HoTen</td>
+                <td>@item.DiaChiKH</td>
+                <td>@item.DienThoaiKH</td>
+                <td>@item.TinhTrang</td>
+                <td> @item.NgayDat</td>              
+            </tr>
+        </tbody>
+    }
+</table>
+

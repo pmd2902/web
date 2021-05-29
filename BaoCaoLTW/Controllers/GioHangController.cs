@@ -112,5 +112,59 @@ namespace BaoCaoLTW.Controllers
             lstGioHang.Clear();
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            //Kiểm tra đăng nhập
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("Login", "User");
+            }
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //Lấy giỏ hàng từ sesion
+            List<GioHang> list = LayGioHang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Thanhtien = TongTien();
+            return View(list);
+        }
+        public ActionResult DatHang(FormCollection fcol)
+        {
+            //Thêm đơn hàng
+            LichSuMuaHang ddh = new LichSuMuaHang();
+            KhachHang kh = (KhachHang)Session["Taikhoan"];
+            List<GioHang> gList = LayGioHang();
+            ddh.ID = kh.ID;
+            ddh.HoTen = kh.HoTen;
+            ddh.DiaChiKH = kh.DiaChiKH;
+            ddh.DienThoaiKH = kh.DienThoaiKH;
+            ddh.NgayDat = DateTime.Now;
+            var Ngaygiao = String.Format("{0:MM/dd/yyyy}", fcol["Ngaygiao"]);
+            ddh.NgayDat = DateTime.Parse(Ngaygiao);
+            ddh.TinhTrang = false;           
+            data.LichSuMuaHangs.InsertOnSubmit(ddh);
+            data.SubmitChanges();
+            foreach (var item in gList)
+            {
+                ChiTietDonHang ctdh = new ChiTietDonHang();
+                ctdh.MaDonHang = ddh.MaDonHang;
+                ctdh.MaSanPham = item.sMaSanPham;
+                ctdh.SoLuong = item.iSoLuong;
+                ctdh.Gia = item.iGia;
+                data.ChiTietDonHangs.InsertOnSubmit(ctdh);
+                var soluong = data.SanPhams.SingleOrDefault(x => x.MaSanPham == ctdh.MaSanPham);                
+                data.SubmitChanges();
+            }
+            data.SubmitChanges();
+            Session["Giohang"] = null;
+            return RedirectToAction("Xacnhandondathang", "GioHang");
+        }
+        public ActionResult Xacnhandondathang()
+        {
+            return View();
+        }
     }
 }

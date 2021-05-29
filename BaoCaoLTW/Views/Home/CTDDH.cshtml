@@ -1,0 +1,33 @@
+﻿@model List<BaoCaoLTW.Models.ChiTietDonHang>
+@{
+    ViewBag.Title = "CTDDH";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 style="text-align:center">CHI TIẾT ĐƠN HÀNG</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Mã Đơn hàng</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Đơn giá</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@item.MaDonHang</td>
+                <td>@item.SanPham.TenSanPham</td>
+                <td>@item.SoLuong</td>
+                <td>@item.Gia VNĐ</td>
+            </tr>
+        </tbody>
+    }
+    <tr>
+        <td colspan="3">Tổng số lượng : @ViewBag.Tongsoluong</td>
+        <td colspan="4">Tổng tiền : @ViewBag.Tongtien VNĐ</td>
+    </tr>
+</table>
+

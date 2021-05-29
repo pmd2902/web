@@ -16,4 +16,3 @@ C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\BaoCaoLTW.dll
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\bin\BaoCaoLTW.pdb
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.dll
 C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.pdb
-C:\Users\PMD\Desktop\.Net\BaoCaoLTW\BaoCaoLTW\obj\Debug\BaoCaoLTW.csprojResolveAssemblyReference.cache

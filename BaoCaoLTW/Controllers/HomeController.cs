@@ -43,7 +43,50 @@ namespace BaoCaoLTW.Controllers
             return View(sanpham);
         }
 
-      
+        public ActionResult donHang()
+        {
+            if (Session["Taikhoan"] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            else
+            {
+                KhachHang kh = (KhachHang)Session["Taikhoan"];
+                List<LichSuMuaHang> ddh = data.LichSuMuaHangs.Where(x => x.ID == kh.ID).ToList();
+                return View(ddh);
+            }
+        }
+        private int iTongsoluong(int MaDH)
+        {
+            int iTongsoluong = 0;
+            List<ChiTietDonHang> list = data.ChiTietDonHangs.Where(x => x.MaDonHang == MaDH).ToList();
+            if (list != null)
+            {
+                iTongsoluong = (int)list.Sum(x => x.SoLuong);
+            }
+            return iTongsoluong;
+        }
+
+        private double dTongtien(int MaDH)
+        {
+            double dTongtien = 0;
+            List<ChiTietDonHang> list = data.ChiTietDonHangs.Where(x => x.MaDonHang == MaDH).ToList();
+            if (list != null)
+            {
+                dTongtien = (double)list.Sum(x => x.SoLuong * x.Gia);
+            }
+            return dTongtien;
+        }
+
+        public ActionResult CTDDH(int MaDH)
+        {
+            List<ChiTietDonHang> ctdhlist = data.ChiTietDonHangs.Where(x => x.MaDonHang == MaDH).ToList();
+            ViewBag.Tongsoluong = iTongsoluong(MaDH);
+            ViewBag.Tongtien = dTongtien(MaDH);
+            return View(ctdhlist);
+        }
+
+
 
 
     }

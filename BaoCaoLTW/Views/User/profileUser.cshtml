@@ -1,0 +1,36 @@
+﻿@model BaoCaoLTW.Models.KhachHang
+@{
+    ViewBag.Title = "profileUser";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div>
+    <h4 style="text-align:center">Thông tin cá nhân</h4>
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:40%">
+        <dd>
+            <b>Họ tên :</b> @Model.HoTen
+        </dd>
+        <dd>
+            <b>Tên tài khoản :</b>@Model.TaiKhoan
+        </dd>
+        <dd>
+            <b>Mật khẩu :</b> @Model.MatKhau
+        </dd>
+        <dd>
+            <b>Email :</b> @Model.Email
+        </dd>
+        <dd>
+            <b>Địa chỉ :</b> @Model.DiaChiKH
+        </dd>
+        <dd>
+            <b>Số điện thoại :</b> @Model.DienThoaiKH
+        </dd>
+        <dd>
+            <b>Ngày sinh :</b> @Model.NgaySinh
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
