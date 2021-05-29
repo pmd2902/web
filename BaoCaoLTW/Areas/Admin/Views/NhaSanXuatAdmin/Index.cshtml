@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BaoCaoLTW.Models.NhaSanXuat>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
@@ -17,7 +18,6 @@
     }
 
     tr:nth-child(even) {
-        background-color: #5d5e63;
     }
 
     th {
@@ -26,28 +26,29 @@
     }
 </style>
 <h2>Quản Lý Nhà Sản Xuất</h2>
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
 <table>
     <tr>
         <th>Mã Nhà Sản Xuất</th>
         <th>Tên Nhà Sản Xuất</th>
         <th>Tình Trạng</th>
         <th colspan="2">
-            <a href="@Url.Action("Create","NhaSanXuatAdmin")"><img src="~/Asset/images/AddNSX.png" /></a>
+            <a href="@Url.Action("Create","NhaSanXuatAdmin")"><img src="~/Assets/images/AddNSX.png" /></a>
         </th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.MaNhaSanXuat</td>
-            <td>@item.TenNhaSanXuat</td>
+            <td>@item.MaNhaSX</td>
+            <td>@item.TenNhaSX</td>
             <td>@item.TinhTrang</td>
-            <td><a href="@Url.Action("Edit","NhaSanXuatAdmin",new { id = @item.MaNhaSanXuat})"> <img src="~/Asset/images/edit.png" /></a> </td>
-            <td><a href="@Url.Action("XoaTamThoi","NhaSanXuatAdmin",new { id = @item.MaNhaSanXuat})"> <img src="~/Asset/images/Delete.png" /></a> </td>
+            <td><a href="@Url.Action("Edit","NhaSanXuatAdmin",new { id = @item.MaNhaSX.Trim()})"> <img src="~/Assets/images/edit.png" /></a> </td>
+            <td><a href="@Url.Action("Delete","NhaSanXuatAdmin",new { id = @item.MaNhaSX.Trim()})"> <img src="~/Assets/images/Delete.png" /></a> </td>
         </tr>
     }
 
 </table>
+
 
 
 
